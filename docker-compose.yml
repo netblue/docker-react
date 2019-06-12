@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build:
+      # context specifies where you want all files and folders to be pulled from
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      # placeholder
+      - "3000:3000"
+    volumes:
+      # placeholder
+      - /app/node_modules
+      # reference to map local folder to container folder
+      - .:/app
+  tests:
+    build:
+      # context specifies where you want all files and folders to be pulled from
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      # placeholder
+      - /app/node_modules
+      # reference to map local folder to container folder
+      - .:/app
+    command: ["npm", "run", "test"]

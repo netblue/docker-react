@@ -1,0 +1,14 @@
+sudo: required
+
+# Tell Travis we need docker
+services:
+  - docker
+
+# Tell Travis to build our docker project
+before_install:
+  - docker build -t netblue/docker-react -f Dockerfile.dev .
+
+# Because the default npm run test behavior is to sit and wait for user input, we need to add -- --coverage to the npm
+# command to make it run and exit
+script:
+  - docker run netblue/docker-react npm run test -- --coverage

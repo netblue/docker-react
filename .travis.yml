@@ -12,3 +12,18 @@ before_install:
 # command to make it run and exit
 script:
   - docker run -e CI=true netblue/docker-react npm run test -- --coverage
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  #Bucket name is the S3 disk that is on your ElasticBeanstalk instance
+  bucket_name: "elasticbeanstalk-us-west-2-277807926920"
+  bucket_path: "docker-react"
+  # Tell Travis only to deploy when we push to master
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"

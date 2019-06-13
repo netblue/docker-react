@@ -11,4 +11,4 @@ before_install:
 # Because the default npm run test behavior is to sit and wait for user input, we need to add -- --coverage to the npm
 # command to make it run and exit
 script:
-  - docker run netblue/docker-react npm run test -- --coverage
+  - docker run -e CI=true netblue/docker-react npm run test -- --exit

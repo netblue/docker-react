@@ -18,7 +18,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-west-2"
   app: "docker-react"
-  env: "DockerReact-env"
+  env: "DockerReact-env-1"
   #Bucket name is the S3 disk that is on your ElasticBeanstalk instance
   bucket_name: "elasticbeanstalk-us-west-2-277807926920"
   bucket_path: "docker-react"
